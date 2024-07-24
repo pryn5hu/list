@@ -41,6 +41,10 @@
         li {
             margin-bottom: 10px;
         }
+        label {
+            display: block;
+            cursor: pointer;
+        }
         input[type="checkbox"] {
             margin-right: 10px;
         }
@@ -49,9 +53,25 @@
             margin-right: 10px;
             vertical-align: middle;
         }
+        span {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        span::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 0;
+            height: 1px;
+            background-color: #888;
+            transition: width 0.7s ease;
+        }
         input[type="checkbox"]:checked + span {
             color: #888;
-            text-decoration: line-through;
+        }
+        input[type="checkbox"]:checked + span::after {
+            width: 100%;
         }
     </style>
 </head>
@@ -61,148 +81,148 @@
 
     <h2>Electronics</h2>
     <ul>
-        <li><input type="checkbox" id="item1"><span>universal plug converter</span></li>
-        <li><input type="checkbox" id="item2"><span>India to Europe converter x3</span></li>
-        <li><input type="checkbox" id="item3"><span>extension board</span></li>
-        <li><input type="checkbox" id="item4"><span>laptop/phone + chargers</span></li>
-        <li><input type="checkbox" id="item5"><span>screen cleaner</span></li>
-        <li><input type="checkbox" id="item6"><span>extra small adapter</span></li>
-        <li><input type="checkbox" id="item7"><span>extra screen-guard and phone-cover</span></li>
-        <li><input type="checkbox" id="item8"><span>sim ejector tool</span></li>
-        <li><input type="checkbox" id="item9"><span>extra usb c-c, microUSB-A, A-C</span></li>
-        <li><input type="checkbox" id="item10"><span>trimmer</span></li>
-        <li><input type="checkbox" id="item11"><span>power bank</span></li>
-        <li><input type="checkbox" id="item12"><span>earphones/tws</span></li>
-        <li><input type="checkbox" id="item13"><span>sci. calculator</span></li>
-        <li><input type="checkbox" id="item14"><span>wallet, card holder</span></li>
-        <li><input type="checkbox" id="item15"><span>forex card</span></li>
-        <li><input type="checkbox" id="item16"><span>cash €</span></li>
+        <li><label><input type="checkbox" id="item1"><span>universal plug converter</span></label></li>
+        <li><label><input type="checkbox" id="item2"><span>India to Europe converter x3</span></label></li>
+        <li><label><input type="checkbox" id="item3"><span>extension board</span></label></li>
+        <li><label><input type="checkbox" id="item4"><span>laptop/phone + chargers</span></label></li>
+        <li><label><input type="checkbox" id="item5"><span>screen cleaner</span></label></li>
+        <li><label><input type="checkbox" id="item6"><span>an extra charging-adapter</span></label></li>
+        <li><label><input type="checkbox" id="item7"><span>extra screen-guard and phone-cover</span></label></li>
+        <li><label><input type="checkbox" id="item8"><span>sim ejector tool</span></label></li>
+        <li><label><input type="checkbox" id="item9"><span>extra usb c-c, microUSB-A, A-C</span></label></li>
+        <li><label><input type="checkbox" id="item10"><span>trimmer</span></label></li>
+        <li><label><input type="checkbox" id="item11"><span>power bank</span></label></li>
+        <li><label><input type="checkbox" id="item12"><span>earphones/tws</span></label></li>
+        <li><label><input type="checkbox" id="item13"><span>sci. calculator</span></label></li>
+        <li><label><input type="checkbox" id="item14"><span>wallet, card holder</span></label></li>
+        <li><label><input type="checkbox" id="item15"><span>forex card</span></label></li>
+        <li><label><input type="checkbox" id="item16"><span>cash €</span></label></li>
     </ul>
 
     <h2>Kitchen</h2>
     <ul>
-        <li><input type="checkbox" id="item17"><span>Knife, peeler</span></li>
-        <li><input type="checkbox" id="item18"><span>sieves x2</span></li>
-        <li><input type="checkbox" id="item19"><span>cookware (tea-pan, tawa, kadhai, fry pan, cooker)</span></li>
-        <li><input type="checkbox" id="item20"><span>microwave safe bowls BIG</span></li>
-        <li><input type="checkbox" id="item21"><span>tiffin box</span></li>
-        <li><input type="checkbox" id="item22"><span>plates, bowls, glass, cups, coffe mug/tumbler, cutlery x2</span></li>
-        <li><input type="checkbox" id="item23"><span>chopper (?)</span></li>
-        <li><input type="checkbox" id="item24"><span>chopping board (?)</span></li>
-        <li><input type="checkbox" id="item25"><span>water bottle</span></li>
-        <li><input type="checkbox" id="item26"><span>rolling pin</span></li>
-        <li><input type="checkbox" id="item27"><span>spatulas, ladles n silicone-brush</span></li>
-        <li><input type="checkbox" id="item28"><span>kitchen towel and wiping cloth</span></li>
-        <li><input type="checkbox" id="item29"><span>vim, scotchbrite, steel-wool, sponge</span></li>
-        <li><input type="checkbox" id="item30"><span>containers</span></li>
-        <li><input type="checkbox" id="item31"><span>tea-sugar-coffe container</span></li>
-        <li><input type="checkbox" id="item32"><span>oil/ghee container/dispenser</span></li>
-        <li><input type="checkbox" id="item33"><span>masala box</span></li>
-        <li><input type="checkbox" id="item34"><span>grater</span></li>
+        <li><label><input type="checkbox" id="item17"><span>Knife, peeler</span></label></li>
+        <li><label><input type="checkbox" id="item18"><span>sieves x2</span></label></li>
+        <li><label><input type="checkbox" id="item19"><span>cookware (tea-pan, tawa, kadhai, fry pan, cooker)</span></label></li>
+        <li><label><input type="checkbox" id="item20"><span>microwave safe bowls BIG</span></label></li>
+        <li><label><input type="checkbox" id="item21"><span>tiffin box</span></label></li>
+        <li><label><input type="checkbox" id="item22"><span>plates, bowls, glass, cups, coffe mug/tumbler, cutlery x2</span></label></li>
+        <li><label><input type="checkbox" id="item23"><span>chopper (?)</span></label></li>
+        <li><label><input type="checkbox" id="item24"><span>chopping board (?)</span></label></li>
+        <li><label><input type="checkbox" id="item25"><span>water bottle</span></label></li>
+        <li><label><input type="checkbox" id="item26"><span>rolling pin</span></label></li>
+        <li><label><input type="checkbox" id="item27"><span>spatulas, ladles n silicone-brush</span></label></li>
+        <li><label><input type="checkbox" id="item28"><span>kitchen towel and wiping cloth</span></label></li>
+        <li><label><input type="checkbox" id="item29"><span>vim, scotchbrite, steel-wool, sponge</span></label></li>
+        <li><label><input type="checkbox" id="item30"><span>containers</span></label></li>
+        <li><label><input type="checkbox" id="item31"><span>tea-sugar-coffe container</span></label></li>
+        <li><label><input type="checkbox" id="item32"><span>oil/ghee container/dispenser</span></label></li>
+        <li><label><input type="checkbox" id="item33"><span>masala box</span></label></li>
+        <li><label><input type="checkbox" id="item34"><span>grater</span></label></li>
     </ul>
 
     <!-- The rest of the sections follow the same pattern -->
     <!-- Docs section -->
     <h2>Docs</h2>
     <ul>
-        <li><input type="checkbox" id="item35"><span>passport/visa</span></li>
-        <li><input type="checkbox" id="item36"><span>Docs manage folder</span></li>
-        <li><input type="checkbox" id="item37"><span>Birth Certif</span></li>
-        <li><input type="checkbox" id="item38"><span>10th mrksh</span></li>
-        <li><input type="checkbox" id="item39"><span>12 mrksh + certif</span></li>
-        <li><input type="checkbox" id="item40"><span>all 8sem mrksh</span></li>
-        <li><input type="checkbox" id="item41"><span>provisional degree</span></li>
-        <li><input type="checkbox" id="item42"><span>medical certif</span></li>
-        <li><input type="checkbox" id="item43"><span>IDs(aadhar,PAN, DL)</span></li>
-        <li><input type="checkbox" id="item44"><span>Rent agreement</span></li>
-        <li><input type="checkbox" id="item45"><span>photos</span></li>
-        <li><input type="checkbox" id="item46"><span>adm letter</span></li>
-        <li><input type="checkbox" id="item47"><span>airplane ticket</span></li>
-        <li><input type="checkbox" id="item48"><span>insurance certif</span></li>
+        <li><label><input type="checkbox" id="item35"><span>passport/visa</span></label></li>
+        <li><label><input type="checkbox" id="item36"><span>Docs manage folder</span></label></li>
+        <li><label><input type="checkbox" id="item37"><span>Birth Certif</span></label></li>
+        <li><label><input type="checkbox" id="item38"><span>10th mrksh</span></label></li>
+        <li><label><input type="checkbox" id="item39"><span>12 mrksh + certif</span></label></li>
+        <li><label><input type="checkbox" id="item40"><span>all 8sem mrksh</span></label></li>
+        <li><label><input type="checkbox" id="item41"><span>provisional degree</span></label></li>
+        <li><label><input type="checkbox" id="item42"><span>medical certif</span></label></li>
+        <li><label><input type="checkbox" id="item43"><span>IDs(aadhar,PAN, DL)</span></label></li>
+        <li><label><input type="checkbox" id="item44"><span>Rent agreement</span></label></li>
+        <li><label><input type="checkbox" id="item45"><span>photos</span></label></li>
+        <li><label><input type="checkbox" id="item46"><span>adm letter</span></label></li>
+        <li><label><input type="checkbox" id="item47"><span>airplane ticket</span></label></li>
+        <li><label><input type="checkbox" id="item48"><span>insurance certif</span></label></li>
     </ul>
 
     <!-- Sanitary & Medicine section -->
     <h2>Sanitary & Medicine</h2>
     <ul>
-        <li><input type="checkbox" id="item49"><span>soap/shampoo/conditioner</span></li>
-        <li><input type="checkbox" id="item50"><span>powder</span></li>
-        <li><input type="checkbox" id="item51"><span>nail cutter</span></li>
-        <li><input type="checkbox" id="item52"><span>comb</span></li>
-        <li><input type="checkbox" id="item53"><span>toothbrush, paste</span></li>
-        <li><input type="checkbox" id="item54"><span>handwash</span></li>
-        <li><input type="checkbox" id="item55"><span>facewash</span></li>
-        <li><input type="checkbox" id="item56"><span>sanitizer</span></li>
-        <li><input type="checkbox" id="item57"><span>deo, perfume</span></li>
-        <li><input type="checkbox" id="item58"><span>hair oil</span></li>
-        <li><input type="checkbox" id="item59"><span>tissues</span></li>
-        <li><input type="checkbox" id="item60"><span>bandage, crepe, band-aid</span></li>
-        <li><input type="checkbox" id="item61"><span>all common meds + dr. prescription</span></li>
-        <li><input type="checkbox" id="item62"><span>vicks, moov</span></li>
-        <li><input type="checkbox" id="item63"><span>Vit-D</span></li>
-        <li><input type="checkbox" id="item64"><span>savlon, cotton</span></li>
-        <li><input type="checkbox" id="item65"><span>cut/wound ointment</span></li>
+        <li><label><input type="checkbox" id="item49"><span>soap/shampoo/conditioner</span></label></li>
+        <li><label><input type="checkbox" id="item50"><span>powder</span></label></li>
+        <li><label><input type="checkbox" id="item51"><span>nail cutter</span></label></li>
+        <li><label><input type="checkbox" id="item52"><span>comb</span></label></li>
+        <li><label><input type="checkbox" id="item53"><span>toothbrush, paste</span></label></li>
+        <li><label><input type="checkbox" id="item54"><span>handwash</span></label></li>
+        <li><label><input type="checkbox" id="item55"><span>facewash</span></label></li>
+        <li><label><input type="checkbox" id="item56"><span>sanitizer</span></label></li>
+        <li><label><input type="checkbox" id="item57"><span>deo, perfume</span></label></li>
+        <li><label><input type="checkbox" id="item58"><span>hair oil</span></label></li>
+        <li><label><input type="checkbox" id="item59"><span>tissues</span></label></li>
+        <li><label><input type="checkbox" id="item60"><span>bandage, crepe, band-aid</span></label></li>
+        <li><label><input type="checkbox" id="item61"><span>all common meds + dr. prescription</span></label></li>
+        <li><label><input type="checkbox" id="item62"><span>vicks, moov</span></label></li>
+        <li><label><input type="checkbox" id="item63"><span>Vit-D</span></label></li>
+        <li><label><input type="checkbox" id="item64"><span>savlon, cotton</span></label></li>
+        <li><label><input type="checkbox" id="item65"><span>cut/wound ointment</span></label></li>
     </ul>
 
     <!-- Miscellaneous section -->
     <h2>Miscellaneous</h2>
     <ul>
-        <li><input type="checkbox" id="item66"><span>folders</span></li>
-        <li><input type="checkbox" id="item67"><span>scissors</span></li>
-        <li><input type="checkbox" id="item68"><span>fevistick, -col, -kwik</span></li>
-        <li><input type="checkbox" id="item69"><span>screwdriver</span></li>
-        <li><input type="checkbox" id="item70"><span>A4 sheets, notebooks (?)</span></li>
-        <li><input type="checkbox" id="item71"><span>paperclips</span></li>
-        <li><input type="checkbox" id="item72"><span>tapes(single,double side)</span></li>
-        <li><input type="checkbox" id="item73"><span>pen pencil eraser sharpener</span></li>
-        <li><input type="checkbox" id="item74"><span>clothes hangers</span></li>
-        <li><input type="checkbox" id="item75"><span>seal clips</span></li>
-        <li><input type="checkbox" id="item76"><span>rubber bands</span></li>
-        <li><input type="checkbox" id="item77"><span>cable-ties</span></li>
-        <li><input type="checkbox" id="item78"><span>zip bags</span></li>
-        <li><input type="checkbox" id="item79"><span>basic sewing kit (?)</span></li>
-        <li><input type="checkbox" id="item80"><span>Rin soap + brush</span></li>
-        <li><input type="checkbox" id="item81"><span>trekking bag</span></li>
-        <li><input type="checkbox" id="item82"><span>shopping bag/jute bag</span></li>
+        <li><label><input type="checkbox" id="item66"><span>folders</span></label></li>
+        <li><label><input type="checkbox" id="item67"><span>scissors</span></label></li>
+        <li><label><input type="checkbox" id="item68"><span>fevistick, -col, -kwik</span></label></li>
+        <li><label><input type="checkbox" id="item69"><span>screwdriver</span></label></li>
+        <li><label><input type="checkbox" id="item70"><span>A4 sheets, notebooks (?)</span></label></li>
+        <li><label><input type="checkbox" id="item71"><span>paperclips</span></label></li>
+        <li><label><input type="checkbox" id="item72"><span>tapes(single,double side)</span></label></li>
+        <li><label><input type="checkbox" id="item73"><span>pen pencil eraser sharpener</span></label></li>
+        <li><label><input type="checkbox" id="item74"><span>clothes hangers</span></label></li>
+        <li><label><input type="checkbox" id="item75"><span>seal clips</span></label></li>
+        <li><label><input type="checkbox" id="item76"><span>rubber bands</span></label></li>
+        <li><label><input type="checkbox" id="item77"><span>cable-ties</span></label></li>
+        <li><label><input type="checkbox" id="item78"><span>zip bags</span></label></li>
+        <li><label><input type="checkbox" id="item79"><span>basic sewing kit (?)</span></label></li>
+        <li><label><input type="checkbox" id="item80"><span>Rin soap + brush</span></label></li>
+        <li><label><input type="checkbox" id="item81"><span>trekking bag</span></label></li>
+        <li><label><input type="checkbox" id="item82"><span>shopping bag/jute bag</span></label></li>
     </ul>
 
     <!-- Clothing n Miscell. section -->
     <h2>Clothing n Miscell.</h2>
     <ul>
-        <li><input type="checkbox" id="item83"><span>bedsheet</span></li>
-        <li><input type="checkbox" id="item84"><span>towel</span></li>
-        <li><input type="checkbox" id="item85"><span>hand towel</span></li>
-        <li><input type="checkbox" id="item86"><span>collapsible storage box(?)</span></li>
-        <li><input type="checkbox" id="item87"><span>raincoat</span></li>
-        <li><input type="checkbox" id="item88"><span>umbrella (?)</span></li>
-        <li><input type="checkbox" id="item89"><span>thermals x2</span></li>
-        <li><input type="checkbox" id="item90"><span>belt</span></li>
+        <li><label><input type="checkbox" id="item83"><span>bedsheet</span></label></li>
+        <li><label><input type="checkbox" id="item84"><span>towel</span></label></li>
+        <li><label><input type="checkbox" id="item85"><span>hand towel</span></label></li>
+        <li><label><input type="checkbox" id="item86"><span>collapsible storage box(?)</span></label></li>
+        <li><label><input type="checkbox" id="item87"><span>raincoat</span></label></li>
+        <li><label><input type="checkbox" id="item88"><span>umbrella (?)</span></label></li>
+        <li><label><input type="checkbox" id="item89"><span>thermals x2</span></label></li>
+        <li><label><input type="checkbox" id="item90"><span>belt</span></label></li>
     </ul>
 
     <!-- Food section -->
     <h2>Food</h2>
     <ul>
-        <li><input type="checkbox" id="item91"><span>ginger garlic paste</span></li>
-        <li><input type="checkbox" id="item92"><span>maggi, soup, oats, pasta</span></li>
-        <li><input type="checkbox" id="item93"><span>dals, choley, rajma</span></li>
-        <li><input type="checkbox" id="item94"><span>masales (haldi, chilli, garam, chat, coriander, jeera-powder)</span></li>
-        <li><input type="checkbox" id="item95"><span>ready masale(pavbhaji, chola, sambhar, meat)</span></li>
-        <li><input type="checkbox" id="item96"><span>maggi masala, chings</span></li>
-        <li><input type="checkbox" id="item97"><span>poha, rice, suji</span></li>
-        <li><input type="checkbox" id="item98"><span>besan, maida (?)</span></li>
-        <li><input type="checkbox" id="item99"><span>cooking oil, ghee (?)</span></li>
+        <li><label><input type="checkbox" id="item91"><span>ginger garlic paste</span></label></li>
+        <li><label><input type="checkbox" id="item92"><span>maggi, soup, oats, pasta</span></label></li>
+        <li><label><input type="checkbox" id="item93"><span>dals, choley, rajma</span></label></li>
+        <li><label><input type="checkbox" id="item94"><span>masales (haldi, chilli, garam, chat, coriander, jeera-powder)</span></label></li>
+        <li><label><input type="checkbox" id="item95"><span>ready masale(pavbhaji, chola, sambhar, meat)</span></label></li>
+        <li><label><input type="checkbox" id="item96"><span>maggi masala, chings</span></label></li>
+        <li><label><input type="checkbox" id="item97"><span>poha, rice, suji</span></label></li>
+        <li><label><input type="checkbox" id="item98"><span>besan, maida (?)</span></label></li>
+        <li><label><input type="checkbox" id="item99"><span>cooking oil, ghee (?)</span></label></li>
     </ul>
 
     <!-- To-do before leaving section -->
     <h2>To-do before leaving</h2>
     <ul>
-        <li><input type="checkbox" id="item100"><span>visit doctor → prescription</span></li>
-        <li><input type="checkbox" id="item101"><span>expand laptop RAM</span></li>
-        <li><input type="checkbox" id="item102"><span>apply for international DL</span></li>
-        <li><input type="checkbox" id="item103"><span>Digi-Yatra Register w/ e-boarding pass</span></li>
-        <li><input type="checkbox" id="item104"><span>get birth certif apostille</span></li>
-        <li><input type="checkbox" id="item105"><span>digitize old notes</span></li>
-        <li><input type="checkbox" id="item106"><span>see for bank account online</span></li>
-        <li><input type="checkbox" id="item107"><span>Revolut/wise</span></li>
+        <li><label><input type="checkbox" id="item100"><span>visit doctor → prescription</span></label></li>
+        <li><label><input type="checkbox" id="item101"><span>expand laptop RAM</span></label></li>
+        <li><label><input type="checkbox" id="item102"><span>apply for international DL</span></label></li>
+        <li><label><input type="checkbox" id="item103"><span>Digi-Yatra Register w/ e-boarding pass</span></label></li>
+        <li><label><input type="checkbox" id="item104"><span>get birth certif apostille</span></label></li>
+        <li><label><input type="checkbox" id="item105"><span>digitize old notes</span></label></li>
+        <li><label><input type="checkbox" id="item106"><span>see for bank account online</span></label></li>
+        <li><label><input type="checkbox" id="item107"><span>Revolut/wise</span></label></li>
     </ul>
 
     <!-- Add more sections as needed -->
