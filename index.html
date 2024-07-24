@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Packing List</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><text y=%2214%22 font-size=%2214%22>✈️</text></svg>">
-
+    <title>Packing List</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -15,6 +14,7 @@
             padding: 20px;
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
         }
         .cover-image {
             width: 100%;
@@ -24,8 +24,21 @@
             background-position: center;
             margin-bottom: 20px;
             border-radius: 8px;
+            position: relative;
         }
-        h1 {
+        .emoji-container {
+            position: absolute;
+            bottom: -60px;
+            left: -340px;
+            width: 100%;
+            text-align: center;
+        }
+        .emoji {
+            font-size: 5em; /* Adjust size as needed */
+            margin: 0;
+            transform: translateY(50%); /* Moves the emoji up */
+        }
+        h1 {margin-top: 73px;
             font-size: 2.5em;
             margin-bottom: 20px;
         }
@@ -50,9 +63,9 @@
         input[type="checkbox"] {
             margin-right: 10px;
         }
-        .emoji {
-            font-size: 2em;
-            margin-right: 10px;
+        .subemoji {
+            font-size: 1em;
+            margin-right: 2px;
             vertical-align: middle;
         }
         span {
@@ -75,13 +88,18 @@
         input[type="checkbox"]:checked + span::after {
             width: 100%;
         }
+        
     </style>
 </head>
 <body>
-    <div class="cover-image"></div>
-    <h1><span class="emoji">🧳</span>Packing List</h1>
+    <div class="cover-image">
+        <div class="emoji-container">
+            <span class="emoji">🧳</span>
+        </div>
+    </div>
+    <h1>PACKING LIST</h1>
 
-    <h2>Electronics</h2>
+    <h2>Electronics<span class="subemoji">🔌</span></h2>
     <ul>
         <li><label><input type="checkbox" id="item1"><span>universal plug converter</span></label></li>
         <li><label><input type="checkbox" id="item2"><span>India to Europe converter x3</span></label></li>
@@ -101,7 +119,7 @@
         <li><label><input type="checkbox" id="item16"><span>cash €</span></label></li>
     </ul>
 
-    <h2>Kitchen</h2>
+    <h2>Kitchen<span class="subemoji">🔪</span></h2>
     <ul>
         <li><label><input type="checkbox" id="item17"><span>Knife, peeler</span></label></li>
         <li><label><input type="checkbox" id="item18"><span>sieves x2</span></label></li>
@@ -123,9 +141,7 @@
         <li><label><input type="checkbox" id="item34"><span>grater</span></label></li>
     </ul>
 
-    <!-- The rest of the sections follow the same pattern -->
-    <!-- Docs section -->
-    <h2>Docs</h2>
+    <h2>Docs<span class="subemoji">📄</span></h2>
     <ul>
         <li><label><input type="checkbox" id="item35"><span>passport/visa</span></label></li>
         <li><label><input type="checkbox" id="item36"><span>Docs manage folder</span></label></li>
@@ -143,8 +159,7 @@
         <li><label><input type="checkbox" id="item48"><span>insurance certif</span></label></li>
     </ul>
 
-    <!-- Sanitary & Medicine section -->
-    <h2>Sanitary & Medicine</h2>
+    <h2>Sanitary & Medicine<span class="subemoji">🧴</span></h2>
     <ul>
         <li><label><input type="checkbox" id="item49"><span>soap/shampoo/conditioner</span></label></li>
         <li><label><input type="checkbox" id="item50"><span>powder</span></label></li>
@@ -165,8 +180,7 @@
         <li><label><input type="checkbox" id="item65"><span>cut/wound ointment</span></label></li>
     </ul>
 
-    <!-- Miscellaneous section -->
-    <h2>Miscellaneous</h2>
+    <h2>Miscellaneous<span class="subemoji">🖇️</span></h2>
     <ul>
         <li><label><input type="checkbox" id="item66"><span>folders</span></label></li>
         <li><label><input type="checkbox" id="item67"><span>scissors</span></label></li>
@@ -187,8 +201,8 @@
         <li><label><input type="checkbox" id="item82"><span>shopping bag/jute bag</span></label></li>
     </ul>
 
-    <!-- Clothing n Miscell. section -->
-    <h2>Clothing n Miscell.</h2>
+
+    <h2>Clothing n Miscell.<span class="subemoji">👖</span></h2>
     <ul>
         <li><label><input type="checkbox" id="item83"><span>bedsheet</span></label></li>
         <li><label><input type="checkbox" id="item84"><span>towel</span></label></li>
@@ -200,8 +214,7 @@
         <li><label><input type="checkbox" id="item90"><span>belt</span></label></li>
     </ul>
 
-    <!-- Food section -->
-    <h2>Food</h2>
+    <h2>Food<span class="subemoji">🍝</span></h2>
     <ul>
         <li><label><input type="checkbox" id="item91"><span>ginger garlic paste</span></label></li>
         <li><label><input type="checkbox" id="item92"><span>maggi, soup, oats, pasta</span></label></li>
@@ -215,7 +228,7 @@
     </ul>
 
     <!-- To-do before leaving section -->
-    <h2>To-do before leaving</h2>
+    <h2>To-do before leaving<span class="subemoji">⚒️</span></h2>
     <ul>
         <li><label><input type="checkbox" id="item100"><span>visit doctor → prescription</span></label></li>
         <li><label><input type="checkbox" id="item101"><span>expand laptop RAM</span></label></li>
@@ -225,7 +238,7 @@
         <li><label><input type="checkbox" id="item105"><span>digitize old notes</span></label></li>
         <li><label><input type="checkbox" id="item106"><span>see for bank account online</span></label></li>
         <li><label><input type="checkbox" id="item107"><span>Revolut/wise</span></label></li>
-        <li><label><input type="checkbox" id="item108"><span>e-verify degree</span></label></li>
+        <li><label><input type="checkbox" id="item108"><span>e-verify degree for KUL</span></label></li>
         <li><label><input type="checkbox" id="item109"><span>send visa to KUL</span></label></li>
     </ul>
 
