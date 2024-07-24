@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><text y=%2214%22 font-size=%2214%22>✈️</text></svg>">
     <title>Packing List</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <style>
+        html {
+    scroll-behavior: smooth;
+}
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
             background-color: #191919;
@@ -26,6 +30,7 @@
             border-radius: 8px;
             position: relative;
         }
+        
         .emoji-container {
             position: absolute;
             bottom: -60px;
@@ -43,18 +48,38 @@
             margin-bottom: 20px;
         }
         h2 {
-            font-size: 1.8em;
             margin-top: 30px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.8em;
             margin-bottom: 15px;
+            line-height: 1.3;
             border-bottom: 1px solid #333;
             padding-bottom: 5px;
+        }
+        .subemoji {
+            margin-left: 10px;
+        }
+        .add-icon {
+            margin-left: 10px;
+            cursor: pointer;
+            color: rgba(225, 223, 217, 0.65);
+            transition: transform 0.5s ease;
+        }
+        .add-icon.rotated {
+            transform: rotate(45deg);
         }
         ul {
             list-style-type: none;
             padding-left: 0;
+            margin-top: 1px;
+            margin-bottom: 1px;
         }
         li {
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
         }
         label {
             display: block;
@@ -63,11 +88,17 @@
         input[type="checkbox"] {
             margin-right: 10px;
         }
-        .subemoji {
-            font-size: 1em;
-            margin-right: 2px;
-            vertical-align: middle;
+        input[type="checkbox"]:checked + span {
+            text-decoration: line-through;
+            color: rgba(55, 53, 47, 0.65);
         }
+        input[type="checkbox"]:checked + span {
+            color: #888;
+        }
+        input[type="checkbox"]:checked + span::after {
+            width: 100%;
+        }
+        
         span {
             position: relative;
             transition: color 0.7s ease;
@@ -82,13 +113,15 @@
             background-color: #888;
             transition: width 0.7s ease;
         }
-        input[type="checkbox"]:checked + span {
-            color: #888;
+        .new-item-input {
+            display: none;
+            margin-top: 10px;
+            width: calc(100% - 10px);
+            padding: 5px;
+            border: 1px solid rgba(55, 53, 47, 0.16);
+            border-radius: 3px;
+            font-size: 14px;
         }
-        input[type="checkbox"]:checked + span::after {
-            width: 100%;
-        }
-        
     </style>
 </head>
 <body>
@@ -99,187 +132,283 @@
     </div>
     <h1>PACKING LIST</h1>
 
-    <h2>Electronics<span class="subemoji">🔌</span></h2>
-    <ul>
-        <li><label><input type="checkbox" id="item1"><span>universal plug converter</span></label></li>
-        <li><label><input type="checkbox" id="item2"><span>India to Europe converter x3</span></label></li>
-        <li><label><input type="checkbox" id="item3"><span>extension board</span></label></li>
-        <li><label><input type="checkbox" id="item4"><span>laptop/phone + chargers</span></label></li>
-        <li><label><input type="checkbox" id="item5"><span>screen cleaner</span></label></li>
-        <li><label><input type="checkbox" id="item6"><span>an extra charging-adapter</span></label></li>
-        <li><label><input type="checkbox" id="item7"><span>extra screen-guard and phone-cover</span></label></li>
-        <li><label><input type="checkbox" id="item8"><span>sim ejector tool</span></label></li>
-        <li><label><input type="checkbox" id="item9"><span>extra usb c-c, microUSB-A, A-C</span></label></li>
-        <li><label><input type="checkbox" id="item10"><span>trimmer</span></label></li>
-        <li><label><input type="checkbox" id="item11"><span>power bank</span></label></li>
-        <li><label><input type="checkbox" id="item12"><span>earphones/tws</span></label></li>
-        <li><label><input type="checkbox" id="item13"><span>sci. calculator</span></label></li>
-        <li><label><input type="checkbox" id="item14"><span>wallet, card holder</span></label></li>
-        <li><label><input type="checkbox" id="item15"><span>forex card</span></label></li>
-        <li><label><input type="checkbox" id="item16"><span>cash €</span></label></li>
-    </ul>
-
-    <h2>Kitchen<span class="subemoji">🔪</span></h2>
-    <ul>
-        <li><label><input type="checkbox" id="item17"><span>Knife, peeler</span></label></li>
-        <li><label><input type="checkbox" id="item18"><span>sieves x2</span></label></li>
-        <li><label><input type="checkbox" id="item19"><span>cookware (tea-pan, tawa, kadhai, fry pan, cooker)</span></label></li>
-        <li><label><input type="checkbox" id="item20"><span>microwave safe bowls BIG</span></label></li>
-        <li><label><input type="checkbox" id="item21"><span>tiffin box</span></label></li>
-        <li><label><input type="checkbox" id="item22"><span>plates, bowls, glass, cups, coffe mug/tumbler, cutlery x2</span></label></li>
-        <li><label><input type="checkbox" id="item23"><span>chopper (?)</span></label></li>
-        <li><label><input type="checkbox" id="item24"><span>chopping board (?)</span></label></li>
-        <li><label><input type="checkbox" id="item25"><span>water bottle</span></label></li>
-        <li><label><input type="checkbox" id="item26"><span>rolling pin</span></label></li>
-        <li><label><input type="checkbox" id="item27"><span>spatulas, ladles n silicone-brush</span></label></li>
-        <li><label><input type="checkbox" id="item28"><span>kitchen towel and wiping cloth</span></label></li>
-        <li><label><input type="checkbox" id="item29"><span>vim, scotchbrite, steel-wool, sponge</span></label></li>
-        <li><label><input type="checkbox" id="item30"><span>containers</span></label></li>
-        <li><label><input type="checkbox" id="item31"><span>tea-sugar-coffe container</span></label></li>
-        <li><label><input type="checkbox" id="item32"><span>oil/ghee container/dispenser</span></label></li>
-        <li><label><input type="checkbox" id="item33"><span>masala box</span></label></li>
-        <li><label><input type="checkbox" id="item34"><span>grater</span></label></li>
-    </ul>
-
-    <h2>Docs<span class="subemoji">📄</span></h2>
-    <ul>
-        <li><label><input type="checkbox" id="item35"><span>passport/visa</span></label></li>
-        <li><label><input type="checkbox" id="item36"><span>Docs manage folder</span></label></li>
-        <li><label><input type="checkbox" id="item37"><span>Birth Certif</span></label></li>
-        <li><label><input type="checkbox" id="item38"><span>10th mrksh</span></label></li>
-        <li><label><input type="checkbox" id="item39"><span>12 mrksh + certif</span></label></li>
-        <li><label><input type="checkbox" id="item40"><span>all 8sem mrksh</span></label></li>
-        <li><label><input type="checkbox" id="item41"><span>provisional degree</span></label></li>
-        <li><label><input type="checkbox" id="item42"><span>medical certif</span></label></li>
-        <li><label><input type="checkbox" id="item43"><span>IDs(aadhar,PAN, DL)</span></label></li>
-        <li><label><input type="checkbox" id="item44"><span>Rent agreement</span></label></li>
-        <li><label><input type="checkbox" id="item45"><span>photos</span></label></li>
-        <li><label><input type="checkbox" id="item46"><span>adm letter</span></label></li>
-        <li><label><input type="checkbox" id="item47"><span>airplane ticket</span></label></li>
-        <li><label><input type="checkbox" id="item48"><span>insurance certif</span></label></li>
-    </ul>
-
-    <h2>Sanitary & Medicine<span class="subemoji">🧴</span></h2>
-    <ul>
-        <li><label><input type="checkbox" id="item49"><span>soap/shampoo/conditioner</span></label></li>
-        <li><label><input type="checkbox" id="item50"><span>powder</span></label></li>
-        <li><label><input type="checkbox" id="item51"><span>nail cutter</span></label></li>
-        <li><label><input type="checkbox" id="item52"><span>comb</span></label></li>
-        <li><label><input type="checkbox" id="item53"><span>toothbrush, paste</span></label></li>
-        <li><label><input type="checkbox" id="item54"><span>handwash</span></label></li>
-        <li><label><input type="checkbox" id="item55"><span>facewash</span></label></li>
-        <li><label><input type="checkbox" id="item56"><span>sanitizer</span></label></li>
-        <li><label><input type="checkbox" id="item57"><span>deo, perfume</span></label></li>
-        <li><label><input type="checkbox" id="item58"><span>hair oil</span></label></li>
-        <li><label><input type="checkbox" id="item59"><span>tissues</span></label></li>
-        <li><label><input type="checkbox" id="item60"><span>bandage, crepe, band-aid</span></label></li>
-        <li><label><input type="checkbox" id="item61"><span>all common meds + dr. prescription</span></label></li>
-        <li><label><input type="checkbox" id="item62"><span>vicks, moov</span></label></li>
-        <li><label><input type="checkbox" id="item63"><span>Vit-D</span></label></li>
-        <li><label><input type="checkbox" id="item64"><span>savlon, cotton</span></label></li>
-        <li><label><input type="checkbox" id="item65"><span>cut/wound ointment</span></label></li>
-    </ul>
-
-    <h2>Miscellaneous<span class="subemoji">🖇️</span></h2>
-    <ul>
-        <li><label><input type="checkbox" id="item66"><span>folders</span></label></li>
-        <li><label><input type="checkbox" id="item67"><span>scissors</span></label></li>
-        <li><label><input type="checkbox" id="item68"><span>fevistick, -col, -kwik</span></label></li>
-        <li><label><input type="checkbox" id="item69"><span>screwdriver</span></label></li>
-        <li><label><input type="checkbox" id="item70"><span>A4 sheets, notebooks (?)</span></label></li>
-        <li><label><input type="checkbox" id="item71"><span>paperclips</span></label></li>
-        <li><label><input type="checkbox" id="item72"><span>tapes(single,double side)</span></label></li>
-        <li><label><input type="checkbox" id="item73"><span>pen pencil eraser sharpener</span></label></li>
-        <li><label><input type="checkbox" id="item74"><span>clothes hangers</span></label></li>
-        <li><label><input type="checkbox" id="item75"><span>seal clips</span></label></li>
-        <li><label><input type="checkbox" id="item76"><span>rubber bands</span></label></li>
-        <li><label><input type="checkbox" id="item77"><span>cable-ties</span></label></li>
-        <li><label><input type="checkbox" id="item78"><span>zip bags</span></label></li>
-        <li><label><input type="checkbox" id="item79"><span>basic sewing kit (?)</span></label></li>
-        <li><label><input type="checkbox" id="item80"><span>Rin soap + brush</span></label></li>
-        <li><label><input type="checkbox" id="item81"><span>trekking bag</span></label></li>
-        <li><label><input type="checkbox" id="item82"><span>shopping bag/jute bag</span></label></li>
-    </ul>
-
-
-    <h2>Clothing n Miscell.<span class="subemoji">👖</span></h2>
-    <ul>
-        <li><label><input type="checkbox" id="item83"><span>bedsheet</span></label></li>
-        <li><label><input type="checkbox" id="item84"><span>towel</span></label></li>
-        <li><label><input type="checkbox" id="item85"><span>hand towel</span></label></li>
-        <li><label><input type="checkbox" id="item86"><span>collapsible storage box(?)</span></label></li>
-        <li><label><input type="checkbox" id="item87"><span>raincoat</span></label></li>
-        <li><label><input type="checkbox" id="item88"><span>umbrella (?)</span></label></li>
-        <li><label><input type="checkbox" id="item89"><span>thermals x2</span></label></li>
-        <li><label><input type="checkbox" id="item90"><span>belt</span></label></li>
-    </ul>
-
-    <h2>Food<span class="subemoji">🍝</span></h2>
-    <ul>
-        <li><label><input type="checkbox" id="item91"><span>ginger garlic paste</span></label></li>
-        <li><label><input type="checkbox" id="item92"><span>maggi, soup, oats, pasta</span></label></li>
-        <li><label><input type="checkbox" id="item93"><span>dals, choley, rajma</span></label></li>
-        <li><label><input type="checkbox" id="item94"><span>masales (haldi, chilli, garam, chat, coriander, jeera-powder)</span></label></li>
-        <li><label><input type="checkbox" id="item95"><span>ready masale(pavbhaji, chola, sambhar, meat)</span></label></li>
-        <li><label><input type="checkbox" id="item96"><span>maggi masala, chings</span></label></li>
-        <li><label><input type="checkbox" id="item97"><span>poha, rice, suji</span></label></li>
-        <li><label><input type="checkbox" id="item98"><span>besan, maida (?)</span></label></li>
-        <li><label><input type="checkbox" id="item99"><span>cooking oil, ghee (?)</span></label></li>
-    </ul>
-
-    <!-- To-do before leaving section -->
-    <h2>To-do before leaving<span class="subemoji">⚒️</span></h2>
-    <ul>
-        <li><label><input type="checkbox" id="item100"><span>visit doctor → prescription</span></label></li>
-        <li><label><input type="checkbox" id="item101"><span>expand laptop RAM</span></label></li>
-        <li><label><input type="checkbox" id="item102"><span>apply for international DL</span></label></li>
-        <li><label><input type="checkbox" id="item103"><span>Digi-Yatra Register w/ e-boarding pass</span></label></li>
-        <li><label><input type="checkbox" id="item104"><span>get birth certif apostille</span></label></li>
-        <li><label><input type="checkbox" id="item105"><span>digitize old notes</span></label></li>
-        <li><label><input type="checkbox" id="item106"><span>see for bank account online</span></label></li>
-        <li><label><input type="checkbox" id="item107"><span>Revolut/wise</span></label></li>
-        <li><label><input type="checkbox" id="item108"><span>e-verify degree for KUL</span></label></li>
-        <li><label><input type="checkbox" id="item109"><span>send visa to KUL</span></label></li>
-    </ul>
-
-    <!-- Add more sections as needed -->
+    <div id="packing-list">
+        <!-- Sections will be dynamically populated here -->
+    </div>
 
     <script>
-        function saveCheckboxStates() {
-            try {
-                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-                const states = {};
-                checkboxes.forEach(checkbox => {
-                    states[checkbox.id] = checkbox.checked;
-                });
-                localStorage.setItem('checkboxStates', JSON.stringify(states));
-                console.log('Checkbox states saved successfully');
-            } catch (error) {
-                console.error('Error saving checkbox states:', error);
+        const sections = [
+            {
+                name: "Electronics", 
+                emoji: "🔌",
+                items: [
+                    "universal plug converter",
+                    "India to Europe converter x3",
+                    "extension board",
+                    "laptop/phone + chargers",
+                    "screen cleaner",
+                    "an extra charging-adapter",
+                    "extra screen-guard and phone-cover",
+                    "sim ejector tool",
+                    "extra usb c-c, microUSB-A, A-C",
+                    "trimmer",
+                    "power bank",
+                    "earphones/tws",
+                    "sci. calculator",
+                    "wallet, card holder",
+                    "forex card",
+                    "cash €"
+                ]
+            },
+            {
+                name: "Kitchen", 
+                emoji: "🔪",
+                items: [
+                    "Knife, peeler",
+                    "sieves x2",
+                    "cookware (tea-pan, tawa, kadhai, fry pan, cooker)",
+                    "microwave safe bowls BIG",
+                    "tiffin box",
+                    "plates, bowls, glass, cups, coffe mug/tumbler, cutlery x2",
+                    "chopper (?)",
+                    "chopping board (?)",
+                    "water bottle",
+                    "rolling pin",
+                    "spatulas, ladles n silicone-brush",
+                    "kitchen towel and wiping cloth",
+                    "vim, scotchbrite, steel-wool, sponge",
+                    "containers",
+                    "tea-sugar-coffe container",
+                    "oil/ghee container/dispenser",
+                    "masala box",
+                    "grater"
+                ]
+            },
+            {
+                name: "Docs", 
+                emoji: "📄",
+                items: [
+                    "passport/visa",
+                    "Docs manage folder",
+                    "Birth Certif",
+                    "10th mrksh",
+                    "12 mrksh + certif",
+                    "all 8sem mrksh",
+                    "provisional degree",
+                    "medical certif",
+                    "IDs(aadhar,PAN, DL)",
+                    "Rent agreement",
+                    "photos",
+                    "adm letter",
+                    "airplane ticket",
+                    "insurance certif"
+                ]
+            },
+            {
+                name: "Sanitary & Medicine", 
+                emoji: "🧴",
+                items: [
+                    "soap/shampoo/conditioner",
+                    "powder",
+                    "nail cutter",
+                    "comb",
+                    "toothbrush, paste",
+                    "handwash",
+                    "facewash",
+                    "sanitizer",
+                    "deo, perfume",
+                    "hair oil",
+                    "tissues",
+                    "bandage, crepe, band-aid",
+                    "all common meds + dr. prescription",
+                    "vicks, moov",
+                    "Vit-D",
+                    "savlon, cotton",
+                    "cut/wound ointment"
+                ]
+            },
+            {
+                name: "Miscellaneous", 
+                emoji: "🖇️",
+                items: [
+                    "folders",
+                    "scissors",
+                    "fevistick, -col, -kwik",
+                    "screwdriver",
+                    "A4 sheets, notebooks (?)",
+                    "paperclips",
+                    "tapes(single,double side)",
+                    "pen pencil eraser sharpener",
+                    "clothes hangers",
+                    "seal clips",
+                    "rubber bands",
+                    "cable-ties",
+                    "zip bags",
+                    "basic sewing kit (?)",
+                    "Rin soap + brush",
+                    "trekking bag",
+                    "shopping bag/jute bag"
+                ]
+            },
+            {
+                name: "Clothing n Miscell.", 
+                emoji: "👖",
+                items: [
+                    "bedsheet",
+                    "towel",
+                    "hand towel",
+                    "collapsible storage box(?)",
+                    "raincoat",
+                    "umbrella (?)",
+                    "thermals x2",
+                    "belt"
+                ]
+            },
+            {
+                name: "Food", 
+                emoji: "🍝",
+                items: [
+                    "ginger garlic paste",
+                    "maggi, soup, oats, pasta",
+                    "dals, choley, rajma",
+                    "masales (haldi, chilli, garam, chat, coriander, jeera-powder)",
+                    "ready masale(pavbhaji, chola, sambhar, meat)",
+                    "maggi masala, chings",
+                    "poha, rice, suji",
+                    "besan, maida (?)",
+                    "cooking oil, ghee (?)"
+                ]
+            },
+            {
+                name: "To-do before leaving", 
+                emoji: "⚒️",
+                items: [
+                    "visit doctor → prescription",
+                    "expand laptop RAM",
+                    "apply for international DL",
+                    "Digi-Yatra Register w/ e-boarding pass",
+                    "get birth certif apostille",
+                    "digitize old notes",
+                    "see for bank account online",
+                    "Revolut/wise",
+                    "e-verify degree for KUL",
+                    "send visa to KUL"
+                ]
+            }
+        ];
+        
+
+        function createSection(section) {
+            return `
+                <h2>${section.name}<span class="subemoji">${section.emoji}</span><span class="add-icon" onclick="toggleInput(this, event)"><i class="fas fa-plus"></i></span></h2>
+                <ul id="${section.name.replace(/\s+/g, '-').toLowerCase()}">
+                    ${section.items.map(item => `
+                        <li>
+                            <label>
+                                <input type="checkbox" onchange="updateLocalStorage()">
+                                <span>${item}</span>
+                            </label>
+                        </li>
+                    `).join('')}
+                </ul>
+                <input type="text" class="new-item-input" onkeydown="addNewItem(event, this)" placeholder="Add new item...">
+            `;
+        }
+
+        function toggleInput(icon, event) {
+    event.stopPropagation();
+    icon.classList.toggle('rotated');
+    const section = icon.parentElement.nextElementSibling;
+    const input = section.nextElementSibling;
+    if (input.style.display === 'block') {
+        hideInput(input);
+    } else {
+        showInput(input);
+        setTimeout(() => {
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 0);
+    }
+}
+
+        function showInput(input) {
+            input.style.display = 'block';
+            input.focus();
+        }
+
+        function hideInput(input) {
+            input.style.display = 'none';
+            input.value = '';
+            const icon = input.previousElementSibling.previousElementSibling.querySelector('.add-icon');
+            icon.classList.remove('rotated');
+        }
+
+        function addNewItem(event, input) {
+            if (event.key === 'Enter') {
+                const newItem = input.value.trim();
+                if (newItem) {
+                    const ul = input.previousElementSibling;
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <label>
+                            <input type="checkbox" onchange="updateLocalStorage()">
+                            <span>${newItem}</span>
+                        </label>
+                    `;
+                    ul.appendChild(li);
+                    saveToLocalStorage();
+                    hideInput(input);
+                }
             }
         }
 
-        function loadCheckboxStates() {
-            try {
-                const states = JSON.parse(localStorage.getItem('checkboxStates')) || {};
-                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-                checkboxes.forEach(checkbox => {
-                    if (states[checkbox.id] !== undefined) {
-                        checkbox.checked = states[checkbox.id];
-                    }
-                });
-                console.log('Checkbox states loaded successfully');
-            } catch (error) {
-                console.error('Error loading checkbox states:', error);
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', saveCheckboxStates);
+        function saveToLocalStorage() {
+            const data = {};
+            sections.forEach(section => {
+                const sectionName = section.name.replace(/\s+/g, '-').toLowerCase();
+                const ul = document.getElementById(sectionName);
+                data[sectionName] = Array.from(ul.children).map(li => ({
+                    text: li.querySelector('span').textContent,
+                    checked: li.querySelector('input[type="checkbox"]').checked
+                }));
             });
-            loadCheckboxStates();
+            localStorage.setItem('packingList', JSON.stringify(data));
+        }
+
+        function loadFromLocalStorage() {
+            const data = JSON.parse(localStorage.getItem('packingList'));
+            if (data) {
+                sections.forEach(section => {
+                    const sectionName = section.name.replace(/\s+/g, '-').toLowerCase();
+                    const ul = document.getElementById(sectionName);
+                    const items = data[sectionName] || [];
+                    ul.innerHTML = items.map(item => `
+                        <li>
+                            <label>
+                                <input type="checkbox" ${item.checked ? 'checked' : ''} onchange="updateLocalStorage()">
+                                <span>${item.text}</span>
+                            </label>
+                        </li>
+                    `).join('');
+                });
+            }
+        }
+
+        function updateLocalStorage() {
+            saveToLocalStorage();
+        }
+
+        // Initialize the page
+        document.getElementById('packing-list').innerHTML = sections.map(createSection).join('');
+        loadFromLocalStorage();
+
+        // Close input when clicking outside
+        document.addEventListener('click', function(event) {
+            const activeInputs = document.querySelectorAll('.new-item-input[style="display: block;"]');
+            activeInputs.forEach(input => {
+                if (!input.contains(event.target) && !event.target.classList.contains('add-icon')) {
+                    hideInput(input);
+                }
+            });
         });
     </script>
 </body>
